@@ -30,10 +30,7 @@ browser.webRequest.onBeforeRequest.addListener(
 
 
 function sendProjectsToChangeDom(projects) {
-  let executing = browser.tabs.executeScript({
-    file: "changeDom.js"
-  });
-  executing.then(() => {
+  setTimeout(() => {
     let querying = browser.tabs.query({
       active: true,
       currentWindow: true
@@ -43,7 +40,13 @@ function sendProjectsToChangeDom(projects) {
         projects
       });
     });
-  });
+  }, 10);
+  // let executing = browser.tabs.executeScript({
+  //   file: "changeDom.js"
+  // });
+  // executing.then(() => {
+
+  // });
 }
 
 // browser.contextMenus.create({

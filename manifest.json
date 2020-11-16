@@ -8,6 +8,12 @@
   "icons": {
     "48": "icons/rl-48.png"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://www.freelancer.com/*"],
+      "js": ["changeDom.js"]
+    }
+  ],
   "background": {
     "scripts": ["index.js"]
   },

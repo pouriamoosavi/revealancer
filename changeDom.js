@@ -1,7 +1,4 @@
-if (window.hadRun) {
-  return;
-}
-window.hadRun = true;
+
 
 function docReady(fn) {
   if (document.readyState === "complete" || document.readyState === "interactive") {
@@ -14,9 +11,10 @@ function docReady(fn) {
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   try {
     var projects = JSON.parse(request.projects)
-    console.log(100)
+    console.log(projects)
     docReady(function () {
-      document.body.innerHTML = "<h1>recieved</h1>" + document.body.innerHTML
+      // document.body.innerHTML = "<h1>recieved</h1>" + document.body.innerHTML
+      console.log(100)
     });
   } catch (err) {
     alert(err)

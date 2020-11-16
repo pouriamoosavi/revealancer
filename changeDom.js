@@ -1,22 +1,32 @@
 
+function checkIfCardInner(cb) {
+  setTimeout(() => {
+    console.log(100)
 
-function docReady(fn) {
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    setTimeout(fn, 1);
-  } else {
-    document.addEventListener("DOMContentLoaded", fn);
-  }
+    if (document.getElementsByClassName("info-card-inner")[0]) {
+      return cb()
+    } else {
+      checkIfCardInner(cb);
+    }
+  }, 10);
 }
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   try {
-    var projects = JSON.parse(request.projects)
-    console.log(projects)
-    docReady(function () {
-      // document.body.innerHTML = "<h1>recieved</h1>" + document.body.innerHTML
-      console.log(100)
-    });
+    var response = JSON.parse(request.response)
+    var projects = response.result.projects;
+    var users = response.result.users;
+
+    checkIfCardInner(function cardInnerExists() {
+      var projectDivs = document.getElementsByClassName("info-card-inner");
+      for (var i = 0; i < projects.length; i++) {
+        var ownerID = projects[i].owner_id;
+        var ownerDisplayName = users[ownerID].display_name;
+        var ownerUsername = users[ownerID].username;
+        projectDivs[i].innerHTML += "<hr><p>" + ownerDisplayName + " (" + ownerUsername + ")" + "</p>";
+      }
+    })
   } catch (err) {
-    alert(err)
+    console.log(err)
   }
 });

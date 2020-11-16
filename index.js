@@ -1,3 +1,11 @@
+browser.runtime.sendMessage({
+  captureInfo: true,
+}).then((response) => {
+  response = JSON.parse(response)
+  let projects = response.result.projects;
+  let users = response.result.users;
+  createRevealancerInfo({ projects, users })
+})
 
 function createRevealancerInfo({ projects, users }) {
   checkIfCardInner(function cardInnerExists() {
@@ -44,26 +52,35 @@ function checkIfCardInner(cb) {
 
 function toggleRevealancerInfo() {
   let revealancerInfoDivs = document.getElementsByClassName("revealancer-info");
+  console.log(revealancerInfoDivs)
   let currentStatus = revealancerInfoDivs[0] && revealancerInfoDivs[0].getAttribute("display")
+  console.log(currentStatus)
 
   let newStatus = currentStatus === "block" ? "none" : "block";
+  console.log(newStatus)
   for (let i = 0; i < revealancerInfoDivs.length; i++) {
     revealancerInfoDivs[i].setAttribute("display", newStatus)
   }
 }
 
-browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  try {
-    if (request.response) {
-      let response = JSON.parse(request.response)
-      let projects = response.result.projects;
-      let users = response.result.users;
-      createRevealancerInfo({ projects, users })
-    } else if (request.toggleRevealancer) {
-      console.log(200)
-      toggleRevealancerInfo()
-    }
-  } catch (err) {
-    console.log(err)
-  }
-});
+// function listener(request, sender, sendResponse) {
+//   try {
+//     if (request.response) {
+//       console.log("request.response")
+//       let response = JSON.parse(request.response)
+//       let projects = response.result.projects;
+//       let users = response.result.users;
+//       createRevealancerInfo({ projects, users })
+//     } else if (request.toggleRevealancer) {
+//       console.log(200)
+//       toggleRevealancerInfo()
+//     }
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
+// browser.runtime.onMessage.hasListener((has) => {
+//   console.log(has)
+// })
+// browser.runtime.onMessage.removeListener(listener);
+// browser.runtime.onMessage.addListener(listener);

@@ -19,7 +19,7 @@ You can download it from firefox extension store, or:
 You can right-click on any part of page in freelancer website and you will see a `Reevealancer` menu. <br>
 Inside it you'll find two options, 
 - `Show/Hide` which toggle the state of informations, 
-- and Github repo which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
+- and `Github repo` which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
 
 ## Contribute 
 Feel free to report bugs and issues. Also new ideas will help a lot.<br>

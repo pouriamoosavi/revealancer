@@ -22,7 +22,8 @@ Inside it you'll find two options,
 - and `Github repo` which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
 
 ## Contribute 
-Feel free to report bugs and issues. Also new ideas will help a lot.<br>
-For now I think the most important thig to do is to create the same extension for Chrome. So if you find it cool, you can help me on this topic.
+Feel free to report bugs and issues. <br>
+Also new ideas will help a lot.<br>
+For now I think the most important thing to do is to create the same extension for Chrome. So if you find it cool, you can help me on this topic.
 
 ## Enjoy freelancing!

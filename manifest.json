@@ -21,8 +21,6 @@
     "webRequest",
     "webRequestBlocking",
     "https://www.freelancer.com/*",
-    "activeTab",
-    "contextMenus",
     "menus",
     "tabs"
   ],

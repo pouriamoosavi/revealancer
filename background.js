@@ -8,7 +8,6 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 
 function listenerForFreelancerProjects(details) {
-  console.log("request ")
   let filter = browser.webRequest.filterResponseData(details.requestId);
   let decoder = new TextDecoder("utf-8");
   var response = "";

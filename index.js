@@ -24,19 +24,19 @@ function createRevealancerInfo(response) {
           freelancer_verified_user: fvu
         } = users[ownerID].status;
         const infoHtml = `<div class="revealancer-info" style="display:${display}">
-          <hr style="margin: 10px 0"><div> Name: <span title="Display Name">${ownerDisplayName}</span>
-          <span title="Username"> (${ownerUsername}) </span>
+          <hr style="margin: 10px 0"><div> Name: <span title="Display Name">${ownerDisplayName} </span>
+          (<a title="Username" href="/u/${ownerUsername}">${ownerUsername}</a>)
           | Location: <img alt="Flag of ${country}" title="${country}" style="height: 14px; width: 18px;"
           src="https://www.f-cdn.com/assets/main/en/assets/flags/${country.toLowerCase()}.svg" data-size="mid"> ${loc} 
           | Completed: ${complete} | Member since ${regYear} </div>
-          <div><span title="Payment Verified">Pmnt Ver: ${pav ? "✔" : "✘"}</span> 
-          | <span title="Email Verified">Eml Ver: ${em ? "✔" : "✘"}</span> 
-          | <span title="Deposit Made">Dep Made: ${dm ? "✔" : "✘"}</span> 
-          | <span title="Profile Complete">Prof Com: ${pc ? "✔" : "✘"}</span> 
-          | <span title="Phone Verified">Phn Ver: ${phv ? "✔" : "✘"}</span> 
-          | <span title="Identity Verified">ID Ver: ${iv ? "✔" : "✘"}</span>
-          | <span title="Facebook Connected">Fcbk Con: ${fc ? "✔" : "✘"}</span> 
-          | <span title="Freelancer Verified User">Ver User: ${fvu ? "✔" : "✘"}</span>
+          <div><span title="Payment Verified" style="color:${pav ? "#a6abb0" : "#c1c7ce"}">Pmnt Verf</span> 
+          | <span title="Email Verified" style="color:${em ? "#a6abb0" : "#c1c7ce"}">Eml Verf</span> 
+          | <span title="Deposit Made" style="color:${dm ? "#a6abb0" : "#c1c7ce"}">Dep Made</span> 
+          | <span title="Profile Complete" style="color:${pc ? "#a6abb0" : "#c1c7ce"}">Prfl Comp</span> 
+          | <span title="Phone Verified" style="color:${phv ? "#a6abb0" : "#c1c7ce"}">Phn Verf</span> 
+          | <span title="Identity Verified" style="color:${iv ? "#a6abb0" : "#c1c7ce"}">ID Verf</span>
+          | <span title="Facebook Connected" style="color:${fc ? "#a6abb0" : "#c1c7ce"}">Fcbk Conct</span> 
+          | <span title="Freelancer Verified User" style="color:${fvu ? "#a6abb0" : "#c1c7ce"}">Verf User</span>
           </div></div>
         `
         const parser = new DOMParser();

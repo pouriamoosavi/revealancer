@@ -1,4 +1,4 @@
-
+let display = "block";
 function createRevealancerInfo(response) {
   let projects = response.result.projects;
   let users = response.result.users;
@@ -23,7 +23,7 @@ function createRevealancerInfo(response) {
           facebook_connected: fc,
           freelancer_verified_user: fvu
         } = users[ownerID].status;
-        const infoHtml = `<div class="revealancer-info" style="display:block">
+        const infoHtml = `<div class="revealancer-info" style="display:${display}">
           <hr style="margin: 10px 0"><div> Name: <span title="Display Name">${ownerDisplayName}</span>
           <span title="Username"> (${ownerUsername}) </span>
           | Location: <img alt="Flag of ${country}" title="${country}" style="height: 14px; width: 18px;"
@@ -67,4 +67,5 @@ function toggleRevealancerInfo() {
   for (let i = 0; i < revealancerInfoDivs.length; i++) {
     revealancerInfoDivs[i].style.display = newStatus;
   }
+  display = newStatus;
 }

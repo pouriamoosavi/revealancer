@@ -21,7 +21,7 @@ You can right-click on any part of page that has no element and you will see a R
 - and Github repo which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
 
 ## Contribute 
-Feel free to report bugs and issues. Also new ideas will help a lot.
+Feel free to report bugs and issues. Also new ideas will help a lot.<br>
 For now I think the most important thig to do is to create the same extension for Chrome. So if you find it cool, you can help me on this topic.
 
 ## Enjoy freelancing!

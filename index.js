@@ -9,6 +9,7 @@ function createRevealancerInfo(response) {
         const ownerID = projects[i].owner_id;
         const ownerDisplayName = users[ownerID].display_name || "";
         const ownerUsername = users[ownerID].username || "";
+        const country = users[ownerID].timezone.country;
         const loc = users[ownerID].location.country.name || "";
         const { complete = 0 } = users[ownerID].employer_reputation.entire_history;
         const regDate = new Date(users[ownerID].registration_date * 1000)
@@ -24,7 +25,9 @@ function createRevealancerInfo(response) {
         } = users[ownerID].status;
         const infoHtml = `<div class="revealancer-info" style="display:block">
           <hr style="margin: 10px 0"><div> ${ownerDisplayName} (${ownerUsername}) 
-          | ${loc} | complete: ${complete} | ${regYear} </div>
+          | <img alt="Flag of ${country}" title="${country}" style="height: 14px; width: 18px;"
+          src="https://www.f-cdn.com/assets/main/en/assets/flags/${country.toLowerCase()}.svg" data-size="mid"> ${loc} 
+          | complete: ${complete} | ${regYear} </div>
           <div><span title="Payment Verified">pay ver: ${pav ? "✔" : "✘"}</span> 
           | <span title="Email Verified">em ver: ${em ? "✔" : "✘"}</span> 
           | <span title="Deposit Made">dep made: ${dm ? "✔" : "✘"}</span> 

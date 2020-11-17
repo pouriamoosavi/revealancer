@@ -29,14 +29,14 @@ function createRevealancerInfo(response) {
           | Location: <img alt="Flag of ${country}" title="${country}" style="height: 14px; width: 18px;"
           src="https://www.f-cdn.com/assets/main/en/assets/flags/${country.toLowerCase()}.svg" data-size="mid"> ${loc} 
           | Completed: ${complete} | Member since ${regYear} </div>
-          <div><span title="Payment Verified" style="color:${pav ? "#77c9b7" : "#a6abb0"}">Payment Verf</span> 
-          | <span title="Email Verified" style="color:${em ? "#77c9b7" : "#a6abb0"}">Email Verf</span> 
-          | <span title="Deposit Made" style="color:${dm ? "#77c9b7" : "#a6abb0"}">Deposit Made</span> 
-          | <span title="Profile Complete" style="color:${pc ? "#77c9b7" : "#a6abb0"}">Profile Comp</span> 
-          | <span title="Phone Verified" style="color:${phv ? "#77c9b7" : "#a6abb0"}">Phone Verf</span> 
-          | <span title="Identity Verified" style="color:${iv ? "#77c9b7" : "#a6abb0"}">ID Verf</span>
-          | <span title="Facebook Connected" style="color:${fc ? "#77c9b7" : "#a6abb0"}">Facebook Conct</span> 
-          | <span title="Freelancer Verified User" style="color:${fvu ? "#77c9b7" : "#a6abb0"}">Verf User</span>
+          <div><span title="Payment Verified" style="color:${pav ? "#5dca6a" : "#a6abb0"}">Payment Verf</span> 
+          | <span title="Email Verified" style="color:${em ? "#5dca6a" : "#a6abb0"}">Email Verf</span> 
+          | <span title="Deposit Made" style="color:${dm ? "#5dca6a" : "#a6abb0"}">Deposit Made</span> 
+          | <span title="Profile Complete" style="color:${pc ? "#5dca6a" : "#a6abb0"}">Profile Comp</span> 
+          | <span title="Phone Verified" style="color:${phv ? "#5dca6a" : "#a6abb0"}">Phone Verf</span> 
+          | <span title="Identity Verified" style="color:${iv ? "#5dca6a" : "#a6abb0"}">ID Verf</span>
+          | <span title="Facebook Connected" style="color:${fc ? "#5dca6a" : "#a6abb0"}">Facebook Conct</span> 
+          | <span title="Freelancer Verified User" style="color:${fvu ? "#5dca6a" : "#a6abb0"}">Verf User</span>
           </div></div>
         `
         const parser = new DOMParser();

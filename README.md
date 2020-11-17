@@ -5,14 +5,14 @@ Firefox add-on to eveal more information about each project in freelancer.com.
 You can download it from firefox extension store, or:
 - Download/clone the repo.
 - Extract it.
-- Go to about:debugging in your Firefox browser. (put it in address bar)
-- Choose this Firefox
-- Load Temporary Add-on…
-- Choose any file in project directory
+- Go to `about:debugging` in your Firefox browser. (put it in address bar)
+- Choose `This Firefox`
+- Click on `Load Temporary Add-on…`
+- Choose any file in project's directory
 
 ## Usage
 ### Result:
-- Go to `https://www.freelancer.com/search/projects/`, Make sure you are sign in if not you will be redirect to another page.
+- Go to <a href="https://www.freelancer.com/search/projects/">https://www.freelancer.com/search/projects/</a>, Make sure you are sign in if not you will be redirect to another page.
 - Enjoy lots of information about each project and employer.
 
 ### Options

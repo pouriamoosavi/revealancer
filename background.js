@@ -35,7 +35,7 @@ browser.menus.create({
   title: "Show/Hide",
   contexts: ['all'],
   icons: {
-    "32": "show-hide-32px.png"
+    "32": "icons/show-hide-32px.png"
   },
   documentUrlPatterns: ["*://*.freelancer.com/*"],
   onclick: function (info, tab) {

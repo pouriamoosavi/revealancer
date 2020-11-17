@@ -24,18 +24,19 @@ function createRevealancerInfo(response) {
           freelancer_verified_user: fvu
         } = users[ownerID].status;
         const infoHtml = `<div class="revealancer-info" style="display:block">
-          <hr style="margin: 10px 0"><div> ${ownerDisplayName} (${ownerUsername}) 
-          | <img alt="Flag of ${country}" title="${country}" style="height: 14px; width: 18px;"
+          <hr style="margin: 10px 0"><div> Name: <span title="Display Name">${ownerDisplayName}</span>
+          <span title="Username"> (${ownerUsername}) </span>
+          | Location: <img alt="Flag of ${country}" title="${country}" style="height: 14px; width: 18px;"
           src="https://www.f-cdn.com/assets/main/en/assets/flags/${country.toLowerCase()}.svg" data-size="mid"> ${loc} 
-          | complete: ${complete} | ${regYear} </div>
-          <div><span title="Payment Verified">pay ver: ${pav ? "✔" : "✘"}</span> 
-          | <span title="Email Verified">em ver: ${em ? "✔" : "✘"}</span> 
-          | <span title="Deposit Made">dep made: ${dm ? "✔" : "✘"}</span> 
-          | <span title="Profile Complete">prof com: ${pc ? "✔" : "✘"}</span> 
-          | <span title="Phone Verified">phn ver: ${phv ? "✔" : "✘"}</span> 
-          | <span title="Identity Verified">id ver: ${iv ? "✔" : "✘"}</span>
-          | <span title="Facebook Connected">fcb con: ${fc ? "✔" : "✘"}</span> 
-          | <span title="Freelancer Verified User">ver user: ${fvu ? "✔" : "✘"}</span>
+          | Completed: ${complete} | Member since ${regYear} </div>
+          <div><span title="Payment Verified">Pmnt Ver: ${pav ? "✔" : "✘"}</span> 
+          | <span title="Email Verified">Eml Ver: ${em ? "✔" : "✘"}</span> 
+          | <span title="Deposit Made">Dep Made: ${dm ? "✔" : "✘"}</span> 
+          | <span title="Profile Complete">Prof Com: ${pc ? "✔" : "✘"}</span> 
+          | <span title="Phone Verified">Phn Ver: ${phv ? "✔" : "✘"}</span> 
+          | <span title="Identity Verified">ID Ver: ${iv ? "✔" : "✘"}</span>
+          | <span title="Facebook Connected">Fcbk Con: ${fc ? "✔" : "✘"}</span> 
+          | <span title="Freelancer Verified User">Ver User: ${fvu ? "✔" : "✘"}</span>
           </div></div>
         `
         const parser = new DOMParser();

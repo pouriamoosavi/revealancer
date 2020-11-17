@@ -46,7 +46,6 @@ function checkIfCardInner(cb) {
 }
 
 function toggleRevealancerInfo() {
-  console.log(200)
   let revealancerInfoDivs = document.getElementsByClassName("revealancer-info");
   let currentStatus = revealancerInfoDivs[0] && revealancerInfoDivs[0].style.display
   let newStatus = currentStatus === "block" ? "none" : "block";

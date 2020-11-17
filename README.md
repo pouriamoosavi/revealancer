@@ -16,7 +16,8 @@ You can download it from firefox extension store, or:
 - Enjoy lots of information about each project and employer.
 
 ### Options
-You can right-click on any part of page that has no element and you will see a Reevealancer menu. Inside it you have two options, 
+You can right-click on any part of page in freelancer website and you will see a `Reevealancer` menu. <br>
+Inside it you'll find two options, 
 - `Show/Hide` which toggle the state of informations, 
 - and Github repo which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
 

@@ -1,13 +1,7 @@
-browser.runtime.sendMessage({
-  captureInfo: true,
-}).then((response) => {
-  response = JSON.parse(response)
+
+function createRevealancerInfo(response) {
   let projects = response.result.projects;
   let users = response.result.users;
-  createRevealancerInfo({ projects, users })
-})
-
-function createRevealancerInfo({ projects, users }) {
   checkIfCardInner(function cardInnerExists() {
     try {
       let projectDivs = document.getElementsByClassName("search-result-item");
@@ -52,6 +46,7 @@ function checkIfCardInner(cb) {
 }
 
 function toggleRevealancerInfo() {
+  console.log(200)
   let revealancerInfoDivs = document.getElementsByClassName("revealancer-info");
   let currentStatus = revealancerInfoDivs[0] && revealancerInfoDivs[0].style.display
   let newStatus = currentStatus === "block" ? "none" : "block";

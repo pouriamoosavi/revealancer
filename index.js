@@ -11,7 +11,7 @@ function createRevealancerInfo(response) {
         const ownerUsername = users[ownerID].username || "";
         const country = users[ownerID].timezone.country;
         const loc = users[ownerID].location.country.name || "";
-        const { complete = 0 } = users[ownerID].employer_reputation.entire_history;
+        const { complete = 0, reviews = 0, overall = 0 } = users[ownerID].employer_reputation.entire_history;
         const regDate = new Date(users[ownerID].registration_date * 1000)
         const regYear = regDate.getFullYear() || 0;
         const { payment_verified: pav,
@@ -23,9 +23,10 @@ function createRevealancerInfo(response) {
           facebook_connected: fc,
           freelancer_verified_user: fvu
         } = users[ownerID].status;
+        const finalScore = calcScore({ rate: overall, rateCount: reviews, pav, em, dm, pc, phv, iv, fc, fvu })
         const infoHtml = `<div class="revealancer-info" style="display:${display}">
           <hr style="margin: 10px 0"><div> Name: <span title="Display Name">${ownerDisplayName} </span>
-          (<a title="Username" href="/u/${ownerUsername}">${ownerUsername}</a>)
+          (<a title="Username" href="#" onclick="window.location.href='/u/${ownerUsername}'">${ownerUsername}</a>)
           | Location: <img alt="Flag of ${country}" title="${country}" style="height: 14px; width: 18px;"
           src="https://www.f-cdn.com/assets/main/en/assets/flags/${country.toLowerCase()}.svg" data-size="mid"> ${loc} 
           | Completed: ${complete} | Member since ${regYear} </div>
@@ -37,6 +38,7 @@ function createRevealancerInfo(response) {
           | <span title="Identity Verified" style="color:${iv ? "#5dca6a" : "#a6abb0"}">ID Verf</span>
           | <span title="Facebook Connected" style="color:${fc ? "#5dca6a" : "#a6abb0"}">Facebook Conct</span> 
           | <span title="Freelancer Verified User" style="color:${fvu ? "#5dca6a" : "#a6abb0"}">Verf User</span>
+          | <span title="Final Score in Scale of 0 to 5" style="font-weight: bold;">Score: ${finalScore}</span>
           </div></div>
         `
         const parser = new DOMParser();
@@ -68,4 +70,33 @@ function toggleRevealancerInfo() {
     revealancerInfoDivs[i].style.display = newStatus;
   }
   display = newStatus;
+}
+
+function calcScore({ rate, rateCount, pav, em, dm, pc, phv, iv, fc, fvu }) {
+  const rateCo = 16;
+  const payCo = 2;
+  const emailCo = 0.5;
+  const depCo = 3;
+  const profCo = 0.5;
+  const phoneCo = 1;
+  const idCo = 3;
+  const fcbCo = 1;
+  const verCo = 3;
+  let score = calcRateScore(Number(rate), Number(rateCount)) * rateCo + Number(pav) * payCo
+    + Number(em) * emailCo + Number(dm) * depCo + Number(pc) * profCo + Number(phv) * phoneCo
+    + Number(iv) * idCo + Number(fc) * fcbCo + Number(fvu) * verCo
+  score = score / 4.4;
+  if (score < 0) score = -1;
+  score = score.toFixed(1);
+  return score;
+
+  function calcRateScore(rate, count) {
+    const scaler = 0.07;
+    const fixedRate = Math.pow(rate - 3, 3);
+    const fixedRateCount = count / 3
+    return sigmoid(scaler * fixedRateCount * fixedRate) - 0.5
+  }
+  function sigmoid(x) {
+    return 1 / (1 + Math.exp(-x))
+  }
 }

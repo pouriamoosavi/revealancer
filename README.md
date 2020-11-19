@@ -14,12 +14,10 @@ You can download it from firefox extension store, or:
 ### Result:
 - Go to <a href="https://www.freelancer.com/search/projects/">https://www.freelancer.com/search/projects/</a>, Make sure you are sign in if not you will be redirect to another page.
 - A seprate division should be added to each project. It contains following information:
-  First line:
   - Display name and username of employer (links to user/employer page)
   - Location, Country.
   - Number of completed projects
   - Join date (only year)
-  Second line:
   - Is employer's payment verify (green means yes, gray means no)
   - Is employer's email verify (green means yes, gray means no)
   - Did employer made deposit (green means yes, gray means no)
@@ -29,7 +27,6 @@ You can download it from firefox extension store, or:
   - Did employer connect facebook (green means yes, gray means no)
   - Is employer freelancer verified user (green means yes, gray means no)
   - Final score which is a number between 0 and 5 and is calculated using all above parameters.
-- Enjoy lots of information about each project and employer.
 
 ### Options
 You can right-click on any part of page in freelancer website and you will see a `Reevealancer` menu. <br>

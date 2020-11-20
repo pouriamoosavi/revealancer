@@ -14,7 +14,7 @@ Or for the very last version or to be just cool you can:
 6. Choose any file in this project's directory. (e.g: `manifest.json`)
 
 ## Usage
-### Result:
+### Features:
 Note: Make sure you are sign in. if not you will be redirect to another page.
 
 #### If you go to <a href="https://www.freelancer.com/search/projects/">freelancer.com/search/projects/</a>:

@@ -2,9 +2,7 @@
   "manifest_version": 2,
   "name": "Revealancer",
   "version": "1.0",
-
   "description": "Reveal more info about projects in first page of freelancer.com.",
-
   "icons": {
     "48": "icons/rl-48.png"
   },
@@ -28,12 +26,6 @@
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "57.0a1"
-    }
-  },
-  "browser_action": {
-    "default_icon": {
-      "32": "icons/rl-48.png",
-      "48": "icons/rl-48.png"
     }
   }
 }

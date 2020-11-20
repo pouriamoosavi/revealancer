@@ -2,7 +2,7 @@ let display = "block";
 function createRevealancerInfo(response) {
   let projects = response.result.projects;
   let users = response.result.users;
-  checkIfCardInner(function cardInnerExists() {
+  checkIfNodeIsReady("info-card-title", function cardInnerExists() {
     try {
       const parser = new DOMParser();
       let projectTitle = document.getElementsByClassName('info-card-title')
@@ -59,16 +59,6 @@ function createRevealancerInfo(response) {
   })
 }
 
-function checkIfCardInner(cb) {
-  setTimeout(() => {
-    if (document.getElementsByClassName("info-card-inner")[0]) {
-      return cb()
-    } else {
-      checkIfCardInner(cb);
-    }
-  }, 10);
-}
-
 function toggleRevealancerInfo() {
   let revealancerInfoDivs = document.getElementsByClassName("revealancer-info");
   const currentStatus = revealancerInfoDivs[0] && revealancerInfoDivs[0].style.display
@@ -81,24 +71,24 @@ function toggleRevealancerInfo() {
 
 function calcScore({ rate, rateCount, pav, em, dm, pc, phv, iv, fc, fvu }) {
   const rateCo = 16;
-  const payCo = 2;
+  const payCo = 1;
   const emailCo = 0.5;
   const depCo = 3;
   const profCo = 0.5;
   const phoneCo = 1;
-  const idCo = 3;
-  const fcbCo = 1;
-  const verCo = 3;
+  const idCo = 1.5;
+  const fcbCo = 0.5;
+  const verCo = 2;
   let score = calcRateScore(Number(rate), Number(rateCount)) * rateCo + Number(pav) * payCo
     + Number(em) * emailCo + Number(dm) * depCo + Number(pc) * profCo + Number(phv) * phoneCo
     + Number(iv) * idCo + Number(fc) * fcbCo + Number(fvu) * verCo
-  score = score / 4.4;
+  score = score / 3.6;
   if (score < 0) score = -1;
   score = score.toFixed(1);
   return score;
 
   function calcRateScore(rate, count) {
-    const scaler = 0.07;
+    const scaler = 0.03;
     const fixedRate = Math.pow(rate - 3, 3);
     const fixedRateCount = count / 3
     return sigmoid(scaler * fixedRateCount * fixedRate) - 0.5
@@ -133,4 +123,36 @@ function showSettings() {
   } catch (err) {
     console.log(err)
   }
+}
+
+function createExchangeInfo(response) {
+  const { exchange_rate } = response.result.projects[0].currency;
+  if (exchange_rate === 1) return;
+  const { minimum, maximum } = response.result.projects[0].budget;
+  const convertedMin = (minimum * exchange_rate).toFixed(2);
+  const convertedMax = (maximum * exchange_rate).toFixed(2);
+  checkIfNodeIsReady("ProjectViewDetails-budget", function () {
+    const parser = new DOMParser();
+    let budgetDiv = document.getElementsByClassName('ProjectViewDetails-budget')
+    console.log(budgetDiv)
+    const headerExchange = `<fl-text _ngcontent-webapp-c798="" _nghost-webapp-c34="" data-color="dark" 
+    data-type="paragraph" data-read-more="none" data-margin-bottom="none" class="exchange-info">
+    <div _ngcontent-webapp-c34="" role="paragraph" class="NativeElement ng-star-inserted" data-color="dark" 
+    data-size="small" data-weight="bold" data-style="normal" data-line-break="false">
+    $${convertedMin} – ${convertedMax} USD</div></fl-text>`
+    const headerExchangeParsed = parser.parseFromString(headerExchange, "text/html");
+    const headerExchangeTags = headerExchangeParsed.getElementsByClassName("exchange-info");
+    console.log(headerExchangeTags)
+    budgetDiv[0].prepend(headerExchangeTags[0])
+  })
+}
+
+function checkIfNodeIsReady(className, cb) {
+  setTimeout(() => {
+    if (document.getElementsByClassName(className)[0]) {
+      return cb()
+    } else {
+      checkIfNodeIsReady(className, cb);
+    }
+  }, 10);
 }

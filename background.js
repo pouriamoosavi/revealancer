@@ -1,8 +1,17 @@
 const allowedIPs = [];
 browser.webRequest.onBeforeRequest.addListener(
-  listenerForFreelancerProjects,
+  (details) => { listenOnRequest(details, "createRevealancerInfo") },
   {
     urls: ["https://www.freelancer.com/api/projects/0.1/projects/active/*"],
+    types: ["xmlhttprequest"]
+  },
+  ["blocking"]
+);
+//https://www.freelancer.com/api/projects/0.1/projects?limit=1&attachment_details=true&full_description=true&job_details=true&location_details=true&nda_details=true&project_collaboration_details=true&seo_urls%5B%5D=python%2FNodejs-python-socketio-integration&selected_bids=true&qualification_details=true&upgrade_details=true&review_availability_details=true&local_details=true&equipment_details=true&invited_freelancer_details=true&webapp=1&compact=true&new_errors=true&new_pools=true
+browser.webRequest.onBeforeRequest.addListener(
+  (details) => { listenOnRequest(details, "createExchangeInfo") },
+  {
+    urls: ["https://www.freelancer.com/api/projects/0.1/projects?*"],
     types: ["xmlhttprequest"]
   },
   ["blocking"]
@@ -17,7 +26,7 @@ browser.webRequest.onBeforeRequest.addListener(
   ["blocking"]
 );
 
-function listenerForFreelancerProjects(details) {
+function listenOnRequest(details, scriptFuncName) {
   let filter = browser.webRequest.filterResponseData(details.requestId);
   let decoder = new TextDecoder("utf-8");
   let response = "";
@@ -30,14 +39,13 @@ function listenerForFreelancerProjects(details) {
   filter.onstop = () => {
     setTimeout(() => {
       browser.tabs.executeScript(details.tabId, {
-        code: "createRevealancerInfo(" + response + ")"
+        code: `${scriptFuncName}(${response})`
       });
     }, 1);
     filter.disconnect();
   };
 
   return {}
-  //return { cancel: true };
 }
 
 function checkIP(details) {

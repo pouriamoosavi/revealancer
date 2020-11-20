@@ -1,5 +1,5 @@
 # Revealancer
-Firefox add-on (extension) to reveal more information about each project in freelancer.com.
+Firefox add-on (extension) to reveal more information about each project in <a href="https://www.freelancer.com">freelancer.com</a>.
 
 ## Download/Install
 You can download and install it from <a href="https://addons.mozilla.org/en-US/firefox/addon/revealancer/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search">firefox extension store</a>. 
@@ -10,13 +10,13 @@ Or for the very last version or to be just cool you can:
 - Go to `about:debugging` in your Firefox browser. (put/type it in address bar)
 - Choose `This Firefox` from left menu.
 - Click on `Load Temporary Add-on…` button.
-- Choose any file in this project's directory. (e.g: manifest.json)
+- Choose any file in this project's directory. (e.g: `manifest.json`)
 
 ## Usage
 ### Result:
 Note: Make sure you are sign in. if not you will be redirect to another page.
 
-#### If you go to <a href="https://www.freelancer.com/search/projects/">https://www.freelancer.com/search/projects/</a>:
+#### If you go to <a href="https://www.freelancer.com/search/projects/">freelancer.com/search/projects/</a>:
 A seprate division should be added to each project. It contains following information:
  - Display name and username of employer (links to user/employer page)
  - Location, Country.

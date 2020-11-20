@@ -3,7 +3,7 @@ Firefox add-on (extension) to reveal more information about each project in <a h
 
 ## Download/Install
 You can download and install it from <a href="https://addons.mozilla.org/en-US/firefox/addon/revealancer/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search">firefox extension store</a>. <br>
-Note: The version in store may not be the last version, but it is the last stable version.
+Note: The version in store could be old and not the last version, but it is the last stable version.
 
 Or for the very last version or to be just cool you can:
 1. Download/clone this github repo.

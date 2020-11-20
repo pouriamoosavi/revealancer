@@ -33,7 +33,7 @@ A seprate division should be added to each project. It contains following inform
  - Final score which is a number between 0 and 5 and is calculated using all above parameters.
   
 #### If you go to any project details page (click on a project):
- - If project's budget is not in USD already, you will see a new division above the project budget which is the project budget exchanged in USD.
+ - If project's budget is not in USD already, you will see a new division above the project budget which is the project budget exchanged to USD.
 
 ### Options
 You can right-click on any part of page in freelancer website and you will see a `Reevealancer` menu. <br>

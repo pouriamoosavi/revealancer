@@ -2,7 +2,8 @@
 Firefox add-on to eveal more information about each project in freelancer.com.
 
 ## Download/Install
-You can download it from firefox extension store, or:
+You can download and install it from <a href="https://addons.mozilla.org/en-US/firefox/addon/revealancer/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search">firefox extension store</a><br>
+or:
 - Download/clone the repo.
 - Extract it.
 - Go to `about:debugging` in your Firefox browser. (put it in address bar)

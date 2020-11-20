@@ -1,8 +1,18 @@
+const allowedIPs = [];
 browser.webRequest.onBeforeRequest.addListener(
   listenerForFreelancerProjects,
   {
     urls: ["https://www.freelancer.com/api/projects/0.1/projects/active/*"],
     types: ["xmlhttprequest"]
+  },
+  ["blocking"]
+);
+
+browser.webRequest.onBeforeRequest.addListener(
+  checkIP,
+  {
+    urls: ["https://www.freelancer.com/*"],
+    types: ["main_frame"]
   },
   ["blocking"]
 );
@@ -26,7 +36,52 @@ function listenerForFreelancerProjects(details) {
     filter.disconnect();
   };
 
-  return {};
+  return {}
+  //return { cancel: true };
+}
+
+function checkIP(details) {
+  console.log(details)
+  return new Promise((resolve, reject) => {
+    fetch('https://www.cloudflare.com/cdn-cgi/trace')
+      .then(res => {
+        res.text().then(value => {
+          try {
+            let valueArr = value.split("=");
+            let ipWithEnter = valueArr[3];
+            let ip = ipWithEnter.split("\n")[0];
+            console.log(ip)
+            if (!ip || allowedIPs.indexOf(ip) === -1) {
+              browser.tabs.executeScript(details.tabId, {
+                code: "showIPAlert('" + ip + "')"
+              });
+              return reject()
+            } else {
+              return resolve()
+            }
+          } catch (err) {
+            console.log(err)
+            browser.tabs.executeScript(details.tabId, {
+              code: "showErr(" + err + ")"
+            });
+            return reject()
+          }
+        }).catch(err => {
+          console.log(err)
+          browser.tabs.executeScript(details.tabId, {
+            code: "showErr(" + err + ")"
+          });
+          return reject()
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        browser.tabs.executeScript(details.tabId, {
+          code: "showErr(" + err + ")"
+        });
+        return reject()
+      })
+  })
 }
 
 browser.menus.create({
@@ -56,6 +111,28 @@ browser.menus.create({
     browser.tabs.executeScript(tab.id, {
       code: "window.open('https://github.com/pouriamoosavi/revealancer', '_blank')"
     });
+  }
+});
+
+browser.menus.create({
+  id: "settings",
+  title: "Settings",
+  contexts: ['all'],
+  icons: {
+    "32": "icons/settings-32px.png"
+  },
+  documentUrlPatterns: ["*://*.freelancer.com/*"],
+  onclick: function (info, tab) {
+    browser.storage.local.set({ a: 1 })
+    let createData = {
+      //type: "detached_panel",
+      url: "/settings.html",
+      // pinned: true,
+    };
+    let creating = browser.tabs.create(createData);
+    // browser.tabs.executeScript(tab.id, {
+    //   code: "showSettings()"
+    // });
   }
 });
 

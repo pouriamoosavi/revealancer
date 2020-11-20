@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <label>Allowed IPs (separate by ,)</label>
+      </div>
+      <div>
+        <input
+          type="rAllowedIPs"
+          name="IPs"
+          id="rAllowedIPs"
+          placeholder="Allowed IPs (separate by ,)"
+        />
+      </div>
+      <div>
+        <button type="button" onclick="saveIPs()">Save</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function saveIPs() {
+      console.log(window.localStorage.getItem("a"));
+    }
+  </script>
+</html>

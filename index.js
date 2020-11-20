@@ -4,6 +4,8 @@ function createRevealancerInfo(response) {
   let users = response.result.users;
   checkIfCardInner(function cardInnerExists() {
     try {
+      const parser = new DOMParser();
+      let projectTitle = document.getElementsByClassName('info-card-title')
       let projectDivs = document.getElementsByClassName("search-result-item");
       for (let i = 0; i < projects.length; i++) {
         const ownerID = projects[i].owner_id;
@@ -23,10 +25,16 @@ function createRevealancerInfo(response) {
           facebook_connected: fc,
           freelancer_verified_user: fvu
         } = users[ownerID].status;
+
         const finalScore = calcScore({ rate: overall, rateCount: reviews, pav, em, dm, pc, phv, iv, fc, fvu })
+        const titleHtml = `<span class="revealancer-info" title="Final Score in Scale of 0 to 5">(Score: ${finalScore})</span>`
+        const titleHtmlParsed = parser.parseFromString(titleHtml, "text/html");
+        const titleHtmlTags = titleHtmlParsed.getElementsByClassName("revealancer-info");
+        projectTitle[i].appendChild(titleHtmlTags[0])
+
         const infoHtml = `<div class="revealancer-info" style="display:${display}">
           <hr style="margin: 10px 0"><div> Name: <span title="Display Name">${ownerDisplayName} </span>
-          (<a title="Username" href="#" onclick="window.location.href='/u/${ownerUsername}'">${ownerUsername}</a>)
+          (<a title="Username" href="/u/${ownerUsername}" target="_self">${ownerUsername}</a>)
           | Location: <img alt="Flag of ${country}" title="${country}" style="height: 14px; width: 18px;"
           src="https://www.f-cdn.com/assets/main/en/assets/flags/${country.toLowerCase()}.svg" data-size="mid"> ${loc} 
           | Completed: ${complete} | Member since ${regYear} </div>
@@ -41,10 +49,9 @@ function createRevealancerInfo(response) {
           | <span title="Final Score in Scale of 0 to 5" style="font-weight: bold;">Score: ${finalScore}</span>
           </div></div>
         `
-        const parser = new DOMParser();
-        const parsed = parser.parseFromString(infoHtml, "text/html");
-        const tags = parsed.getElementsByClassName("revealancer-info");
-        projectDivs[i].appendChild(tags[0]);
+        const infoHtmlParsed = parser.parseFromString(infoHtml, "text/html");
+        const infoHtmlTags = infoHtmlParsed.getElementsByClassName("revealancer-info");
+        projectDivs[i].appendChild(infoHtmlTags[0]);
       }
     } catch (err) {
       console.log(err)
@@ -98,5 +105,32 @@ function calcScore({ rate, rateCount, pav, em, dm, pc, phv, iv, fc, fvu }) {
   }
   function sigmoid(x) {
     return 1 / (1 + Math.exp(-x))
+  }
+}
+
+function showIPAlert(ip) {
+  window.stop()
+  alert(`Revealancer: Your IP address (${ip}) is not in allowed IP addresses. Please check you VPN connection.
+You can always change IP allowed list in extension setting.`)
+}
+
+function showErr(err) {
+  alert(err);
+}
+
+function showSettings() {
+  console.log(100)
+  try {
+    let createData = {
+      title: 'Revealancer Settings',
+      //type: "detached_panel",
+      url: "/settings.html",
+      width: 250,
+      height: 100,
+      pinned: true
+    };
+    let creating = browser.tabs.create(createData);
+  } catch (err) {
+    console.log(err)
   }
 }

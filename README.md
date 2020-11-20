@@ -3,14 +3,15 @@ Firefox add-on (extension) to reveal more information about each project in <a h
 
 ## Download/Install
 You can download and install it from <a href="https://addons.mozilla.org/en-US/firefox/addon/revealancer/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search">firefox extension store</a>. <br>
-Note: Firefox store version may not be the last version, but it is the last stable version.<br>
+Note: Firefox store version may not be the last version, but it is the last stable version.
+
 Or for the very last version or to be just cool you can:
-- Download/clone this github repo.
-- Extract it.
-- Go to `about:debugging` in your Firefox browser. (put/type it in address bar)
-- Choose `This Firefox` from left menu.
-- Click on `Load Temporary Add-on…` button.
-- Choose any file in this project's directory. (e.g: `manifest.json`)
+1. Download/clone this github repo.
+2. Extract it.
+3. Go to `about:debugging` in your Firefox browser. (put/type it in address bar)
+4. Choose `This Firefox` from left menu.
+5. Click on `Load Temporary Add-on…` button.
+6. Choose any file in this project's directory. (e.g: `manifest.json`)
 
 ## Usage
 ### Result:

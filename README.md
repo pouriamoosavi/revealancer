@@ -1,5 +1,5 @@
 # Revealancer
-Firefox add-on to eveal more information about each project in freelancer.com.
+Firefox add-on (extension) to reveal more information about each project in freelancer.com.
 
 ## Download/Install
 You can download and install it from <a href="https://addons.mozilla.org/en-US/firefox/addon/revealancer/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search">firefox extension store</a>. 

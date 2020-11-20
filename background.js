@@ -7,7 +7,7 @@ browser.webRequest.onBeforeRequest.addListener(
   },
   ["blocking"]
 );
-//https://www.freelancer.com/api/projects/0.1/projects?limit=1&attachment_details=true&full_description=true&job_details=true&location_details=true&nda_details=true&project_collaboration_details=true&seo_urls%5B%5D=python%2FNodejs-python-socketio-integration&selected_bids=true&qualification_details=true&upgrade_details=true&review_availability_details=true&local_details=true&equipment_details=true&invited_freelancer_details=true&webapp=1&compact=true&new_errors=true&new_pools=true
+
 browser.webRequest.onBeforeRequest.addListener(
   (details) => { listenOnRequest(details, "createExchangeInfo") },
   {

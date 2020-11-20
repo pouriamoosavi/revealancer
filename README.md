@@ -2,38 +2,45 @@
 Firefox add-on to eveal more information about each project in freelancer.com.
 
 ## Download/Install
-You can download and install it from <a href="https://addons.mozilla.org/en-US/firefox/addon/revealancer/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search">firefox extension store</a><br>
-or:
-- Download/clone the repo.
+You can download and install it from <a href="https://addons.mozilla.org/en-US/firefox/addon/revealancer/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search">firefox extension store</a>. 
+Note: Please pay attention that it might not be the last version, but it is the last stable version.<br>
+Or for the very last version or to be just cool you can:
+- Download/clone this github repo.
 - Extract it.
-- Go to `about:debugging` in your Firefox browser. (put it in address bar)
-- Choose `This Firefox`
-- Click on `Load Temporary Add-on…`
-- Choose any file in project's directory
+- Go to `about:debugging` in your Firefox browser. (put/type it in address bar)
+- Choose `This Firefox` from left menu.
+- Click on `Load Temporary Add-on…` button.
+- Choose any file in this project's directory. (e.g: manifest.json)
 
 ## Usage
 ### Result:
-- Go to <a href="https://www.freelancer.com/search/projects/">https://www.freelancer.com/search/projects/</a>, Make sure you are sign in if not you will be redirect to another page.
-- A seprate division should be added to each project. It contains following information:
-  - Display name and username of employer (links to user/employer page)
-  - Location, Country.
-  - Number of completed projects
-  - Join date (only year)
-  - Is employer's payment verify (green means yes, gray means no)
-  - Is employer's email verify (green means yes, gray means no)
-  - Did employer made deposit (green means yes, gray means no)
-  - Is employer's profile complete (green means yes, gray means no)
-  - Is employer's phone verify (green means yes, gray means no)
-  - Is employer's identicaion verify (green means yes, gray means no)
-  - Did employer connect facebook (green means yes, gray means no)
-  - Is employer freelancer verified user (green means yes, gray means no)
-  - Final score which is a number between 0 and 5 and is calculated using all above parameters.
+Note: Make sure you are sign in. if not you will be redirect to another page.
+
+#### If you go to <a href="https://www.freelancer.com/search/projects/">https://www.freelancer.com/search/projects/</a>:
+A seprate division should be added to each project. It contains following information:
+ - Display name and username of employer (links to user/employer page)
+ - Location, Country.
+ - Number of completed projects
+ - Join date (only year)
+ - Is employer's payment verify (green means yes, gray means no)
+ - Is employer's email verify (green means yes, gray means no)
+ - Did employer made deposit (green means yes, gray means no)
+ - Is employer's profile complete (green means yes, gray means no)
+ - Is employer's phone verify (green means yes, gray means no)
+ - Is employer's identicaion verify (green means yes, gray means no)
+ - Did employer connect facebook (green means yes, gray means no)
+ - Is employer freelancer verified user (green means yes, gray means no)
+ - Final score which is a number between 0 and 5 and is calculated using all above parameters.
+  
+#### If you go to any project details page (click on a project):
+ - If project's budget is not in USD already, you will see a new division above the project budget which is the project budget exchanged in USD.
 
 ### Options
 You can right-click on any part of page in freelancer website and you will see a `Reevealancer` menu. <br>
 Inside it you'll find two options, 
 - `Show/Hide` which toggle the state of informations, 
-- and `Github repo` which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
+- `Github repo` which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
+- `Settings` which open settings tab. (exprimental and not complete)
 
 ## Contribute 
 Feel free to report bugs and issues. <br>

@@ -1,4 +1,4 @@
-const allowedIPs = [];
+const allowedIPs = ["*"];
 browser.webRequest.onBeforeRequest.addListener(
   (details) => { listenOnRequest(details, "createRevealancerInfo") },
   {
@@ -49,6 +49,9 @@ function listenOnRequest(details, scriptFuncName) {
 }
 
 function checkIP(details) {
+  if (allowedIPs.indexOf("*") > -1) {
+    return {}
+  }
   console.log(details)
   return new Promise((resolve, reject) => {
     fetch('https://www.cloudflare.com/cdn-cgi/trace')

@@ -19,6 +19,7 @@ Note: Make sure you are sign in. if not you will be redirect to another page.
 
 #### If you go to <a href="https://www.freelancer.com/search/projects/">freelancer.com/search/projects/</a>:
 A final score should be added to each project's title (something like: 'Score: 3.9'). It is the same score as you will see in below division.
+
 A seprate division should be added at the bottom of each project. It contains following information:
  - Display name and username of employer (links to user/employer page)
  - Location, Country.

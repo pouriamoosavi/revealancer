@@ -44,10 +44,9 @@ Inside it you'll find two options,
 
 #### Settings page
 Inside settings tab you can change your preferences. It is not possible to open two settings tabs together.
-
 In settings tab:
 - There is options to change which extra informations do you want to see and which part you dont want.<br>
-- There is also an advanced option to filter IPs you want to access to freelancer.com with them. Means you can access freelancer.com only with thoes IPs.
+- There is also an advanced option to filter IPs you want to access to freelancer.com with them. Means you can access freelancer.com only with thoes IPs. You can seprate IPs with ',' to enter more than one IP. Puting a single '\*' in this filter means you need no filter and all IPs will pass to the website.
 Note: Pay attention that this filter does **not** guarantee that it blocks other IPs completly. I did my best to make sure this is the case but it is not completly safe.
 
 All changes will take effect right when you save settings and there is no need to refresh you tabs.

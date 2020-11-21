@@ -18,7 +18,8 @@ Or for the very last version or to be just cool you can:
 Note: Make sure you are sign in. if not you will be redirect to another page.
 
 #### If you go to <a href="https://www.freelancer.com/search/projects/">freelancer.com/search/projects/</a>:
-A seprate division should be added to each project. It contains following information:
+A final score should be added to each project's title (something like: 'Score: 3.9'). It is the same score as you will see in below division.
+A seprate division should be added at the bottom of each project. It contains following information:
  - Display name and username of employer (links to user/employer page)
  - Location, Country.
  - Number of completed projects
@@ -31,7 +32,7 @@ A seprate division should be added to each project. It contains following inform
  - Is employer's identicaion verify (green means yes, gray means no)
  - Did employer connect facebook (green means yes, gray means no)
  - Is employer freelancer verified user (green means yes, gray means no)
- - Final score which is a number between 0 and 5 and is calculated using all above parameters.
+ - Final score which is a number between 0 and 5 and is calculated using all above parameters. (You can find more details about how this number is calculated in `calcScore` function in `index.js`)
   
 #### If you go to any project details page (click on a project):
  - If project's budget is not in USD already, you will see a new division above the project budget which is the project budget exchanged to USD.
@@ -49,11 +50,11 @@ In settings tab:
 - There is also an advanced option to filter IPs you want to access to <a href="https://www.freelancer.com">freelancer.com</a> with them. Means you can access <a href="https://www.freelancer.com">freelancer.com</a> only with these IPs.<br> You can seprate IPs with ',' to enter more than one IP. Puting a single '\*' in this filter means you need no filter and all IPs will pass to the website.
 Note: Pay attention that this filter does **not** guarantee that it blocks other IPs completly. I did my best to make sure this is the case but it is not completly safe.
 
-All changes will take effect right when you save settings and there is no need to refresh you tabs.
+All changes will take effect right when you save settings and there is no need to refresh tabs.
 
 ## Contribute 
 Feel free to report bugs and issues. <br>
-Also new ideas will help a lot.<br>
+Also new ideas will be appreciated.<br>
 For now I think the most important thing to do is to create the same extension for Chrome. So if you find it cool, you can help me on this topic.
 
 ## Enjoy freelancing!

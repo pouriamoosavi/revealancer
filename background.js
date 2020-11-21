@@ -1,4 +1,12 @@
-const allowedIPs = ["*"];
+let allowedIPs = ["*"];
+browser.storage.local.set({ rSettings: { ips: allowedIPs } });
+
+browser.runtime.onMessage.addListener((message) => {
+  if (message === "rSaveSettings") {
+    saveSettings();
+  }
+})
+
 browser.webRequest.onBeforeRequest.addListener(
   (details) => { listenOnRequest(details, "createRevealancerInfo") },
   {
@@ -73,14 +81,14 @@ function checkIP(details) {
           } catch (err) {
             console.log(err)
             browser.tabs.executeScript(details.tabId, {
-              code: "showErr(" + err + ")"
+              code: "alert(" + err + ")"
             });
             return reject()
           }
         }).catch(err => {
           console.log(err)
           browser.tabs.executeScript(details.tabId, {
-            code: "showErr(" + err + ")"
+            code: "alert(" + err + ")"
           });
           return reject()
         })
@@ -88,27 +96,20 @@ function checkIP(details) {
       .catch(err => {
         console.log(err)
         browser.tabs.executeScript(details.tabId, {
-          code: "showErr(" + err + ")"
+          code: "alert(" + err + ")"
         });
         return reject()
       })
   })
 }
 
-browser.menus.create({
-  id: "toggleRevealancer",
-  title: "Show/Hide",
-  contexts: ['all'],
-  icons: {
-    "32": "icons/show-hide-32px.png"
-  },
-  documentUrlPatterns: ["*://*.freelancer.com/*"],
-  onclick: function (info, tab) {
-    browser.tabs.executeScript(tab.id, {
-      code: "toggleRevealancerInfo()"
-    });
-  }
-});
+function saveSettings() {
+  browser.storage.local.get("rSettings").then((item) => {
+    const settings = item.rSettings
+    allowedIPs = settings.ips.split(",").map(ip => ip.trim()).filter(ip => ip !== "");
+    browser.runtime.sendMessage("rAllSettingsSaved")
+  })
+}
 
 browser.menus.create({
   id: "githubRepo",
@@ -134,17 +135,17 @@ browser.menus.create({
   },
   documentUrlPatterns: ["*://*.freelancer.com/*"],
   onclick: function (info, tab) {
-    browser.storage.local.set({ a: 1 })
-    let createData = {
-      //type: "detached_panel",
-      url: "/settings.html",
-      // pinned: true,
-    };
-    let creating = browser.tabs.create(createData);
-    // browser.tabs.executeScript(tab.id, {
-    //   code: "showSettings()"
-    // });
+    browser.tabs.query({ url: `${browser.extension.getURL('./')}settings.html` }).then((tabArr) => {
+      if (tabArr.length != 0) {
+        browser.tabs.executeScript(tab.tabId, {
+          code: "alert('There is already a settings tab open, please use that!')"
+        });
+      } else {
+        let createData = {
+          url: "/settings.html",
+        };
+        browser.tabs.create(createData);
+      }
+    });
   }
 });
-
-// //https://www.freelancer.com/api/projects/0.1/projects/active/?compact=true&enterprise_metadata_field_details=true&forceShowLocationDetails=false&full_description=true&job_details=true&jobs%5B%5D=9&jobs%5B%5D=13&jobs%5B%5D=31&jobs%5B%5D=500&jobs%5B%5D=759&jobs%5B%5D=68&jobs%5B%5D=343&jobs%5B%5D=598&jobs%5B%5D=287&jobs%5B%5D=1254&jobs%5B%5D=619&jobs%5B%5D=1082&jobs%5B%5D=270&jobs%5B%5D=602&jobs%5B%5D=43&jobs%5B%5D=440&jobs%5B%5D=1347&keywords=&languages%5B%5D=en&limit=10&offset=0&project_types%5B%5D=fixed&query=&sort_field=submitdate&upgrade_details=true&user_details=true&user_employer_reputation=true&user_status=true

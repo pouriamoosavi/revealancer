@@ -4,28 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings</title>
+    <script src="settings.js"></script>
   </head>
-  <body>
-    <div>
+  <body style="background-image: url(/images/settings-background.jpg)">
+    <div
+      style="
+        width: 70vw;
+        margin: 10px auto;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 8px;
+      "
+    >
+      <h2>Revealancer settings:</h2>
       <div>
-        <label>Allowed IPs (separate by ,)</label>
-      </div>
-      <div>
+        <label style="width: 20%">Allowed IPs</label>
+        <span
+          style="min-width: 3%; max-width: 3%; display: inline-block; cursor: help"
+          title="separate with ','&#013;Use * to allow all IPs. (No filter)"
+          >&#9432;:
+        </span>
         <input
           type="rAllowedIPs"
           name="IPs"
           id="rAllowedIPs"
           placeholder="Allowed IPs (separate by ,)"
+          style="width: 80%"
         />
       </div>
+      <hr />
       <div>
-        <button type="button" onclick="saveIPs()">Save</button>
+        <button type="button" id="rSaveButton" style="cursor: pointer">Save</button>
       </div>
     </div>
   </body>
-  <script>
-    function saveIPs() {
-      console.log(window.localStorage.getItem("a"));
-    }
-  </script>
 </html>

@@ -101,11 +101,7 @@ function calcScore({ rate, rateCount, pav, em, dm, pc, phv, iv, fc, fvu }) {
 function showIPAlert(ip) {
   window.stop()
   alert(`Revealancer: Your IP address (${ip}) is not in allowed IP addresses. Please check you VPN connection.
-You can always change IP allowed list in extension setting.`)
-}
-
-function showErr(err) {
-  alert(err);
+You can always change IP allowed list in extension setting in right click menu.`)
 }
 
 function showSettings() {

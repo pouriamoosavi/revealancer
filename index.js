@@ -104,23 +104,6 @@ function showIPAlert(ip) {
 You can always change IP allowed list in extension setting in right click menu.`)
 }
 
-function showSettings() {
-  console.log(100)
-  try {
-    let createData = {
-      title: 'Revealancer Settings',
-      //type: "detached_panel",
-      url: "/settings.html",
-      width: 250,
-      height: 100,
-      pinned: true
-    };
-    let creating = browser.tabs.create(createData);
-  } catch (err) {
-    console.log(err)
-  }
-}
-
 function createExchangeInfo(response) {
   const { exchange_rate } = response.result.projects[0].currency;
   if (exchange_rate === 1) return;

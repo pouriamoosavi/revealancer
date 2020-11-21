@@ -1,5 +1,14 @@
 let allowedIPs = ["*"];
-browser.storage.local.set({ rSettings: { ips: allowedIPs } });
+browser.storage.local.set({
+  rSettings: {
+    ips: allowedIPs,
+    appearance: {
+      rEmployerInfo: true,
+      rExchangeBudget: true,
+      rScoreInTitle: true
+    }
+  }
+});
 
 browser.runtime.onMessage.addListener((message) => {
   if (message === "rSaveSettings") {
@@ -46,9 +55,11 @@ function listenOnRequest(details, scriptFuncName) {
   }
   filter.onstop = () => {
     setTimeout(() => {
-      browser.tabs.executeScript(details.tabId, {
-        code: `${scriptFuncName}(${response})`
-      });
+      if (details.tabId > -1) {
+        browser.tabs.executeScript(details.tabId, {
+          code: `${scriptFuncName}(${response})`
+        });
+      }
     }, 1);
     filter.disconnect();
   };
@@ -107,6 +118,13 @@ function saveSettings() {
   browser.storage.local.get("rSettings").then((item) => {
     const settings = item.rSettings
     allowedIPs = settings.ips.split(",").map(ip => ip.trim()).filter(ip => ip !== "");
+    browser.tabs.query({ url: "*://*.freelancer.com/*" }).then((tabs) => {
+      for (let tab of tabs) {
+        browser.tabs.executeScript(tab.id, {
+          code: "changeAppearance(" + JSON.stringify(settings.appearance) + ")"
+        });
+      }
+    })
     browser.runtime.sendMessage("rAllSettingsSaved")
   })
 }

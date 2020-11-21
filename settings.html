@@ -16,6 +16,24 @@
       "
     >
       <h2>Revealancer settings:</h2>
+      <h3>Appearance:</h3>
+      <div>
+        <input type="checkbox" name="rScoreInTitle" id="rScoreInTitle" />
+        <label for="rScoreInTitle"> Show employer's score in project's title. </label>
+      </div>
+      <div>
+        <input type="checkbox" name="rEmployerInfo" id="rEmployerInfo" />
+        <label for="rEmployerInfo">
+          Show employer's details in each projects' division.
+        </label>
+      </div>
+      <div>
+        <input type="checkbox" name="rExchangeBudget" id="rExchangeBudget" />
+        <label for="rExchangeBudget">
+          Show exchanged project's budget in project's details.
+        </label>
+      </div>
+      <h3>Advanced:</h3>
       <div>
         <label style="width: 20%">Allowed IPs</label>
         <span
@@ -31,9 +49,10 @@
           style="width: 80%"
         />
       </div>
-      <hr />
+      <br />
       <div>
         <button type="button" id="rSaveButton" style="cursor: pointer">Save</button>
+        <span id="rSaveMessage"></span>
       </div>
     </div>
   </body>

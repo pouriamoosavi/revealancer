@@ -44,8 +44,8 @@ Inside it you'll find two options,
 - `Github repo` which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
 - `Settings` which open settings tab.
 
-#### Settings page
-Inside settings tab you can change your preferences. It is not possible to open two settings tabs together.
+#### Settings tab
+Inside settings tab you can change your preferences. It is not possible to open two settings tabs together.<br>
 In settings tab:
 - There is options to change which extra informations do you want to see and which part you dont want.<br>
 - There is also an advanced option to filter IPs you want to access to <a href="https://www.freelancer.com">freelancer.com</a> with them. Means you can access <a href="https://www.freelancer.com">freelancer.com</a> only with these IPs.<br> You can seprate IPs with ',' to enter more than one IP. Puting a single '\*' in this filter means you need no filter and all IPs will pass to the website.

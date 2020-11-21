@@ -39,9 +39,18 @@ A seprate division should be added to each project. It contains following inform
 ### Options
 You can right-click on any part of page in freelancer website and you will see a `Reevealancer` menu. <br>
 Inside it you'll find two options, 
-- `Show/Hide` which toggle the state of informations, 
 - `Github repo` which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
-- `Settings` which open settings tab. (exprimental and not complete)
+- `Settings` which open settings tab.
+
+#### Settings page
+Inside settings tab you can change your preferences. It is not possible to open two settings tabs together.
+
+In settings tab:
+- There is options to change which extra informations do you want to see and which part you dont want.<br>
+- There is also an advanced option to filter IPs you want to access to freelancer.com with them. Means you can access freelancer.com only with thoes IPs.
+Note: Pay attention that this filter does **not** guarantee that it blocks other IPs completly. I did my best to make sure this is the case but it is not completly safe.
+
+All changes will take effect right when you save settings and there is no need to refresh you tabs.
 
 ## Contribute 
 Feel free to report bugs and issues. <br>

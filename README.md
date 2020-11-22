@@ -38,6 +38,10 @@ A seprate division should be added at the bottom of each project. It contains fo
 #### If you go to any project details page (click on a project):
  - If project's budget is not in USD already, you will see a new division above the project budget which is the project budget exchanged to USD.
 
+#### Create an IP white list:
+You can create an IP white list in settings tab (find more details in settings tab).<br> This featur helps you to make sure you probebly wont access <a href="https://www.freelancer.com">freelancer.com</a> with any IP that is not in the whitelist. After you set at least one IP in settings tab, a request will send to https://www.cloudflare.com/cdn-cgi/trace before the main request to <a href="https://www.freelancer.com">freelancer.com</a>. This request will get your current public IP. then it checks if this IP is in whitelist or not, and if not it will show you an alert and will block the request. Put a ' \* ' in IP whitelist will completly disable this proccess, means no more requests will send to lookup your IP.
+ 
+Note: This filter does **not** guarantee that it blocks other IPs completly. I did my best to make sure this is the case but it is not completly safe.
 ### Options
 You can right-click on any part of page in freelancer website and you will see a `Reevealancer` menu. <br>
 Inside it you'll find two options, 
@@ -48,8 +52,9 @@ Inside it you'll find two options,
 Inside settings tab you can change your preferences. It is not possible to open two settings tabs together.<br>
 In settings tab:
 - There is options to change which extra informations do you want to see and which part you dont want.<br>
-- There is also an advanced option to filter IPs you want to access to <a href="https://www.freelancer.com">freelancer.com</a> with them. Means you can access <a href="https://www.freelancer.com">freelancer.com</a> only with these IPs.<br> You can seprate IPs with ',' to enter more than one IP. Puting a single '\*' in this filter means you need no filter and all IPs will pass to the website.
-Note: Pay attention that this filter does **not** guarantee that it blocks other IPs completly. I did my best to make sure this is the case but it is not completly safe.
+- There is also an advanced option for IP whitelist.<br>
+You can seprate them with ',' to enter more than one IP. Puting a single '\*' in this filter means you need no filter and all IPs will pass to the website.
+
 
 All changes will take effect right when you save settings and there is no need to refresh tabs.
 

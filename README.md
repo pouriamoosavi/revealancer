@@ -45,7 +45,7 @@ Note: This filter does **not** guarantee that it blocks other IPs completly. I d
 ### Options
 You can right-click on any part of page in freelancer website and you will see a `Reevealancer` menu. <br>
 Inside it you'll find two options, 
-- `Github repo` which obviously leads you here. You can click on it, come here and read this again, then you will do this for eternity.
+- `Github repo` which obviously leads you here. Base on your browser's settings it may block this request as a popup, in that case you can allow it manually or change it to automatically allow popups on freelancer.com. You can click on it, come here and read this again, then you will do this for eternity.
 - `Settings` which open settings tab.
 
 #### Settings tab
